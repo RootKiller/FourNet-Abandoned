@@ -1,7 +1,4 @@
-//
-//         GTA EFLC Multiplayer
-// Copyright (C) 2015 All rights reserved
-//
+/// Copyright (C) 2016 by EFLC MP Team
 
 #include <Windows.h>
 #include <stdio.h>
