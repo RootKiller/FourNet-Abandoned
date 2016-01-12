@@ -372,33 +372,29 @@ static String<CHAR_TYPE, ALLOCATOR> operator+(const CHAR_TYPE *const a, const St
 	return result;
 }
 
-//! Char type independent Fixed-size string
-template <typename CHAR_TYPE, unsigned SIZE>
-class FixedString : public String<CHAR_TYPE, FixedAllocator<CHAR_TYPE, SIZE> >
-{
-public:
-	using String::String;
-	using String::operator=;
-};
-
 //! Basic set of uses for all strings.
 #define USE_STRING_BASE\
 	public:\
 		using String::String;\
 		using String::operator=;
 
+//! Char type independent Fixed-size string
+template <typename CHAR_TYPE, unsigned SIZE>
+class FixedString : public String<CHAR_TYPE, FixedAllocator<CHAR_TYPE, SIZE> >	{ USE_STRING_BASE };
+
+
 //! ANSI Fixed-size string
 template <unsigned SIZE>
-class AFixedString : public String<char, FixedAllocator<char, SIZE> > { USE_STRING_BASE };
+class AFixedString : public String<char, FixedAllocator<char, SIZE> >			{ USE_STRING_BASE };
 
 //! WIDECHAR Fixed-size string
 template <unsigned SIZE>
-class WFixedString : public String<wchar_t, FixedAllocator<wchar_t, SIZE> > { USE_STRING_BASE };
+class WFixedString : public String<wchar_t, FixedAllocator<wchar_t, SIZE> >		{ USE_STRING_BASE };
 
 //! ANSI dynamic string
-class AString : public String<char, DynamicHeapAllocator<char> > { USE_STRING_BASE };
+class AString : public String<char, DynamicHeapAllocator<char> >				{ USE_STRING_BASE };
 
 //! WIDECHAR dynamic string
-class WString : public String<wchar_t, DynamicHeapAllocator<wchar_t> > { USE_STRING_BASE };
+class WString : public String<wchar_t, DynamicHeapAllocator<wchar_t> >			{ USE_STRING_BASE };
 
 /* EOF */
