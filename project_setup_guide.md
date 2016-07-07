@@ -1,4 +1,4 @@
-EFLCMP Project setup guide
+IVMP Project setup guide
 ==========================
 
-1. Set environment variable `EFLCMP_PROJECT_ROOT` to your project root path.
+1. Set environment variable `IVMP_PROJECT_ROOT` to your project root path.

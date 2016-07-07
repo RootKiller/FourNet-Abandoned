@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Callbacks">
+      <UniqueIdentifier>{c0072870-fb7f-4f10-8f5b-2a4f62c166a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Debug">
+      <UniqueIdentifier>{3d4e02f1-adc6-4b25-aa3d-5c446f521dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debug">
+      <UniqueIdentifier>{0b8d8340-ef37-476d-8b99-cc0990a3a40b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileSystem">
+      <UniqueIdentifier>{4205cba7-2837-4f76-9cf3-60a3b864fba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileSystem">
+      <UniqueIdentifier>{cbe49e56-2561-4356-bb3e-c86eca0aadbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{314f311c-68c7-4bad-aa09-c3f10c8c8bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{e5207421-b4f3-4fb6-aaeb-8502a8beae5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Memory">
+      <UniqueIdentifier>{87064aa4-8098-441e-87d5-0f4ed1ac28d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Memory\Allocators">
+      <UniqueIdentifier>{e482b9aa-7606-44ba-9f5d-b292873e72a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OS">
+      <UniqueIdentifier>{49530d83-8a63-4669-a7a1-7561a40a0cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OS">
+      <UniqueIdentifier>{a4124ef5-5790-41ea-8e6f-74a8edaab35e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Performance">
+      <UniqueIdentifier>{452de330-9412-4919-97b8-deef265eab09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Performance">
+      <UniqueIdentifier>{34d90f82-e02e-483d-a89f-01aa62045401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\String">
+      <UniqueIdentifier>{dc805e5b-f321-4ec4-97a2-371d7b275e9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\String">
+      <UniqueIdentifier>{a4c2f08d-0c2b-49e2-8435-c416c09857b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Symbols">
+      <UniqueIdentifier>{be428061-81d2-4195-bd9e-b71bb652f723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Symbols">
+      <UniqueIdentifier>{7d62ec65-a948-4395-ae8b-4cd9d31bba39}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\SharedCore\Strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\TypeTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Allocators.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\AutoPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\BaseClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Callbacks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\CommandLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Compare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Config.Win.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Nil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\PrintMacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\RefCountObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\SharedPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Callbacks\Base.h">
+      <Filter>Header Files\Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Callbacks\Functions.h">
+      <Filter>Header Files\Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Callbacks\Methods.h">
+      <Filter>Header Files\Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Debug\Debug.h">
+      <Filter>Header Files\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\FileSystem\FileSystem.h">
+      <Filter>Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\FileSystem\TextFile.h">
+      <Filter>Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\FileSystem\BinaryFile.h">
+      <Filter>Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\FileSystem\File.h">
+      <Filter>Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Math\Vector2.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Math\MathFunctions.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Math\Rectangle.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\DynamicHeapAllocator.h">
+      <Filter>Header Files\Memory\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\FixedAllocator.h">
+      <Filter>Header Files\Memory\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\FixedHeapAllocator.h">
+      <Filter>Header Files\Memory\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\BaseAllocator.h">
+      <Filter>Header Files\Memory\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\MemFunctions.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\OS\OSFileSystem.h">
+      <Filter>Header Files\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\OS\OSTime.h">
+      <Filter>Header Files\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\OS\OS.h">
+      <Filter>Header Files\OS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Performance\ProfilingSection.h">
+      <Filter>Header Files\Performance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Performance\Profiler.h">
+      <Filter>Header Files\Performance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\String\String.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\String\StringLib.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\String\UTF8.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Symbols\SymbolSolver.h">
+      <Filter>Header Files\Symbols</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\SharedCore\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\CommandLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Debug\Debug.cpp">
+      <Filter>Source Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\FileSystem\BinaryFile.cpp">
+      <Filter>Source Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\FileSystem\FileSystem.cpp">
+      <Filter>Source Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\FileSystem\File.cpp">
+      <Filter>Source Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\FileSystem\TextFile.cpp">
+      <Filter>Source Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Math\Vector2.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\OS\OS.Win32.cpp">
+      <Filter>Source Files\OS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\OS\OSTime.Win32.cpp">
+      <Filter>Source Files\OS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\OS\OSFileSystem.Win32.cpp">
+      <Filter>Source Files\OS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Performance\Profiler.cpp">
+      <Filter>Source Files\Performance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Performance\ProfilingSection.cpp">
+      <Filter>Source Files\Performance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\String\UTF8.cpp">
+      <Filter>Source Files\String</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Symbols\SymbolSolver.Win32.cpp">
+      <Filter>Source Files\Symbols</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

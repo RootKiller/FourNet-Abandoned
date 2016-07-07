@@ -1,10 +1,10 @@
-/// Copyright (C) 2016 by EFLC MP Team
+/// Copyright (C) 2016 by Rage MP Team
 
 #include <Windows.h>
 #include <stdio.h>
 
 #include "Strings.h"
-#include "OS.h"
+#include "OS/OS.h"
 
 #include "Steam/SteamWrapper.h"
 #include "Injecting.h"
@@ -31,14 +31,14 @@ int AppMain(int argc, char *argv[])
 	if (!steam.IsGameInstalled()) {
 		AString128 errorMessage;
 		errorMessage.Format("To run you need to have installed %s game.", GAME_NAME);
-		os::ShowMessageBox("Fatal Error", errorMessage, os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		OS::ShowMessageBox("Fatal Error", errorMessage, OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		return 0;
 	}
 
 	PathString gamePath;
 	steam.GetGameInstallPath(gamePath);
 	if (gamePath.IsEmpty()) {
-		os::ShowMessageBox("Fatal Error", "Unable to find game installation path.", os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		OS::ShowMessageBox("Fatal Error", "Unable to find game installation path.", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		return 0;
 	}
 
@@ -52,13 +52,15 @@ int AppMain(int argc, char *argv[])
 	SetEnvironmentVariableA("SteamAppID", STRINGIZE(GAME_APPID));
 
 	if (GetFileAttributesA(gameExePath) == INVALID_FILE_ATTRIBUTES) {
-		os::ShowMessageBox("Fatal Error", "Unable to find game .exe file.\n\nGame file: " + gameExePath, os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		OS::ShowMessageBox("Fatal Error", "Unable to find game .exe file.\n\nGame file: " + gameExePath, OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		return 0;
 	}
 
 	if (!CreateProcessA(gameExePath, NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, gamePath, &startupInfo, &processInformation)) {
 		const unsigned lastError = GetLastError();
-		os::ShowMessageBox("Fatal Error", "Cannot create game process.\n\nGame file: " + gameExePath + "\nDirectory: "+ gamePath +"\n\n(Error code: " + lastError + ")", os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		AString1024 errorMessage;
+		errorMessage.Format("Cannot create game process.\n\nGame file: %s\nDirectory: %s\n\n(Error code: %u)", *gameExePath, *gamePath, lastError);
+		OS::ShowMessageBox("Fatal Error", errorMessage, OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		return 0;
 	}
 
@@ -72,13 +74,13 @@ int AppMain(int argc, char *argv[])
 	path += "\\Core.dll";
 
 	if (GetFileAttributesA(path) == INVALID_FILE_ATTRIBUTES) {
-		os::ShowMessageBox("Fatal Error", "Cannot find Core.dll file. Please try reinstalling the mod.", os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		OS::ShowMessageBox("Fatal Error", "Cannot find Core.dll file. Please try reinstalling the mod.", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		TerminateProcess(processInformation.hProcess, 0);
 		return 0;
 	}
 
 	if (!InjectDll(processInformation.hProcess, path)) {
-		os::ShowMessageBox("Fatal Error", "Could not inject dll into the game process. Please try launching the game again.", os::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		OS::ShowMessageBox("Fatal Error", "Could not inject dll into the game process. Please try launching the game again.", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		TerminateProcess(processInformation.hProcess, 0);
 		return 0;
 	}

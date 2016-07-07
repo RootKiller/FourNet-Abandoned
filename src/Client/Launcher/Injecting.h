@@ -1,4 +1,4 @@
-/// Copyright (C) 2016 by EFLC MP Team
+/// Copyright (C) 2016 by GTA IV MP Team
 #pragma once
 
 #include <Windows.h>

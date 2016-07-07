@@ -1,4 +1,4 @@
-/// Copyright (C) 2016 by EFLC MP Team
+/// Copyright (C) 2016 by Rage MP Team
 
 #include "Injecting.h"
 
