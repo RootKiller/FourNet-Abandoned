@@ -10,6 +10,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Client\Core\Core.vcxproj", "{91C52AB9-8ABE-49A1-B2A1-13124A6FE031}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "Client\Launcher\Launcher.vcxproj", "{1355993D-A511-4223-95E6-17903C3D9E35}"
+	ProjectSection(ProjectDependencies) = postProject
+		{91C52AB9-8ABE-49A1-B2A1-13124A6FE031} = {91C52AB9-8ABE-49A1-B2A1-13124A6FE031}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{3F05FF81-10F8-4D7A-BD47-2213C8C2146C}"
 EndProject
