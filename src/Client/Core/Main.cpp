@@ -6,6 +6,8 @@
 
 #include <Windows.h>
 
+#include "OS/OS.h"
+
 /**
  * Get the game executable file name.
  *
@@ -13,9 +15,7 @@
  */
 PathString GetGameExeFileName(void)
 {
-	char exeFileName[MAX_PATH] = { 0 };
-	GetModuleFileName(NULL, exeFileName, MAX_PATH);
-	PathString path(exeFileName);
+	PathString path(OS::GetModuleFullPath());
 
 	size_t slashPos = path.FindLast('/');
 	if (IsNil(slashPos)) {
@@ -47,6 +47,7 @@ void CoreMain(void)
 		isInitialized = true;
 	}
 	else if (exeName == GAME_EXE_NAME) {
+		OS::ShowMessageBox("Game", "Game");
 		isProcessLauncher = false;
 		isInitialized = true;
 	}
