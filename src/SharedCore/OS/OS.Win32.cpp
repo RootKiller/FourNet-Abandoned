@@ -28,6 +28,23 @@ void DebugBreakPoint_Impl(void)
 	RaiseException(EXCEPTION_BREAKPOINT, EXCEPTION_NONCONTINUABLE, 0, nullptr);
 }
 
+PathString GetModuleFullPath(const char *const moduleName)
+{
+	char exeFileName[MAX_PATH] = { 0 };
+	GetModuleFileName(GetModuleHandle(moduleName), exeFileName, MAX_PATH);
+	PathString path(exeFileName);
+	return path;
+}
+
+PathString GetModulePath(const char *const moduleName)
+{
+	const PathString fullPath(GetModuleFullPath(moduleName));
+	const size_t separator = fullPath.FindLast('\\');
+	PathString path;
+	path.SubStr(fullPath, 0, separator);
+	return path;
+}
+
 } /* namespace OS */
 
 /* EOF */

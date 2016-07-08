@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "Strings.h"
+
 namespace OS {
 
 enum class EMessageBoxType
@@ -25,6 +27,22 @@ void ShowMessageBox(const char *const title, const char *const message, const EM
  * OS level debug breakpoint implementation.
  */
 void DebugBreakPoint_Impl(void);
+
+/**
+ * Get full path of the module. (with exe file name)
+ *
+ * @param[in] moduleName The name of the module. In case nullptr method returns path to the process.
+ * @return Path to the module.
+ */
+PathString GetModuleFullPath(const char *const moduleName = nullptr);
+
+/**
+ * Get path of the module. (without exe file name)
+ *
+ * @param[in] moduleName The name of the module. In case nullptr method returns path to the process.
+ * @return Path to the module.
+ */
+PathString GetModulePath(const char *const moduleName = nullptr);
 
 } /* namespace OS */
 
