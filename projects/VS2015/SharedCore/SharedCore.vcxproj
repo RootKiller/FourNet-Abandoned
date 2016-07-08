@@ -165,6 +165,8 @@
     <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\DynamicHeapAllocator.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\FixedAllocator.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\FixedHeapAllocator.h" />
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Hooking\Hooking.h" />
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Hooking\Injecting.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Memory\MemFunctions.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Nil.h" />
     <ClInclude Include="..\..\..\src\SharedCore\OS\OS.h" />
@@ -194,6 +196,8 @@
     <ClCompile Include="..\..\..\src\SharedCore\FileSystem\TextFile.cpp" />
     <ClCompile Include="..\..\..\src\SharedCore\Logger.cpp" />
     <ClCompile Include="..\..\..\src\SharedCore\Math\Vector2.cpp" />
+    <ClCompile Include="..\..\..\src\SharedCore\Memory\Hooking\Hooking.cpp" />
+    <ClCompile Include="..\..\..\src\SharedCore\Memory\Hooking\Injecting.cpp" />
     <ClCompile Include="..\..\..\src\SharedCore\OS\OS.Win32.cpp" />
     <ClCompile Include="..\..\..\src\SharedCore\OS\OSFileSystem.Win32.cpp" />
     <ClCompile Include="..\..\..\src\SharedCore\OS\OSTime.Win32.cpp" />

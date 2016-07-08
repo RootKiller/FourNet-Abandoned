@@ -2,8 +2,6 @@
 
 #include "Injecting.h"
 
-namespace launcher {
-
 /**
  * Inject DLL into process.
  *
@@ -53,7 +51,5 @@ bool InjectDll(const HANDLE process, const char *const dllPath)
 	VirtualFreeEx(process, remoteLibPath, sizeof(remoteLibPath), MEM_RELEASE);
 	return true;
 }
-
-} /* namespace launcher */
 
 /* EOF */

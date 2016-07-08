@@ -30,16 +30,10 @@
     <ClCompile Include="..\..\..\..\src\Client\Launcher\GameModDefines.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\Client\Launcher\Injecting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\Client\Launcher\Steam\SteamWrapper.h">
       <Filter>Header Files\Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\Client\Launcher\Injecting.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

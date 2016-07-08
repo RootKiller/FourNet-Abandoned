@@ -60,6 +60,15 @@
     <Filter Include="Source Files\Symbols">
       <UniqueIdentifier>{7d62ec65-a948-4395-ae8b-4cd9d31bba39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Memory\Hooking">
+      <UniqueIdentifier>{8e5032ad-f436-441c-aa92-51c26029bfff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memory">
+      <UniqueIdentifier>{3f34b2fa-f717-4ef9-b074-2153e49b6cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memory\Hooking">
+      <UniqueIdentifier>{47cc2fba-3876-483e-955a-5a8dde2d8dc6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\SharedCore\Strings.h">
@@ -191,6 +200,12 @@
     <ClInclude Include="..\..\..\src\SharedCore\Symbols\SymbolSolver.h">
       <Filter>Header Files\Symbols</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Hooking\Hooking.h">
+      <Filter>Header Files\Memory\Hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Memory\Hooking\Injecting.h">
+      <Filter>Header Files\Memory\Hooking</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\SharedCore\Timer.cpp">
@@ -240,6 +255,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\SharedCore\Symbols\SymbolSolver.Win32.cpp">
       <Filter>Source Files\Symbols</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Memory\Hooking\Hooking.cpp">
+      <Filter>Source Files\Memory\Hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SharedCore\Memory\Hooking\Injecting.cpp">
+      <Filter>Source Files\Memory\Hooking</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

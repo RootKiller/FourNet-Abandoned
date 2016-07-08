@@ -89,7 +89,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\Client\Launcher\GameModDefines.cpp" />
-    <ClCompile Include="..\..\..\..\src\Client\Launcher\Injecting.cpp" />
     <ClCompile Include="..\..\..\..\Src\Client\Launcher\Main.cpp" />
     <ClCompile Include="..\..\..\..\src\Client\Launcher\Steam\SteamWrapper.cpp" />
   </ItemGroup>
@@ -99,7 +98,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\src\Client\Launcher\Injecting.h" />
     <ClInclude Include="..\..\..\..\src\Client\Launcher\Steam\SteamWrapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
