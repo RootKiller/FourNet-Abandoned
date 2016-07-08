@@ -7,7 +7,7 @@
 #include "OS/OS.h"
 
 #include "Steam/SteamWrapper.h"
-#include "Injecting.h"
+#include "Memory/Hooking/Injecting.h"
 
 namespace launcher {
 
