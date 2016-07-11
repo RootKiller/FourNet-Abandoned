@@ -32,14 +32,14 @@ PathString GetModuleFullPath(const char *const moduleName)
 {
 	char exeFileName[MAX_PATH] = { 0 };
 	GetModuleFileName(GetModuleHandle(moduleName), exeFileName, MAX_PATH);
-	PathString path(exeFileName);
-	return path;
+	return PathString(exeFileName);
 }
 
 PathString GetModulePath(const char *const moduleName)
 {
 	const PathString fullPath(GetModuleFullPath(moduleName));
 	const size_t separator = fullPath.FindLast('\\');
+	ASSERT(NotNil(separator));
 	PathString path;
 	path.SubStr(fullPath, 0, separator);
 	return path;
