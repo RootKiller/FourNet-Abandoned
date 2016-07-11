@@ -8,6 +8,9 @@
 
 #include "OS/OS.h"
 
+#include "Memory/Hooking/Hooking.h"
+#include "Memory/MemFunctions.h"
+
 /**
  * Get the game executable file name.
  *
@@ -47,9 +50,13 @@ void CoreMain(void)
 		isInitialized = true;
 	}
 	else if (exeName == GAME_EXE_NAME) {
-		OS::ShowMessageBox("Game", "Game");
+		OS::ShowMessageBox("Game", "You can attach debugger now");
 		isProcessLauncher = false;
 		isInitialized = true;
+
+		Hooking::Init();
+
+		const Address_t base = reinterpret_cast<Address_t>(GetModuleHandle(NULL)) - 0x400000;
 	}
 }
 
