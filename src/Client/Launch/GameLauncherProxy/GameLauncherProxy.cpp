@@ -36,21 +36,22 @@ BOOL WINAPI MyCreateProcess(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LPS
 	wchar_t gameExePath[MAX_PATH] = { 0 };
 	wchar_t gamePath[MAX_PATH] = { 0 };
 
-	MultiByteToWideChar(CP_UTF8, NULL, exeDirectory, exeDirectory.Length(), gameExePath, MAX_PATH);
-	MultiByteToWideChar(CP_UTF8, NULL, gameDirectory, gameDirectory.Length(), gamePath, MAX_PATH);
+	MultiByteToWideChar(CP_ACP, NULL, exeDirectory, exeDirectory.Length(), gameExePath, MAX_PATH);
+	MultiByteToWideChar(CP_ACP, NULL, gameDirectory, gameDirectory.Length(), gamePath, MAX_PATH);
 
 	const BOOL result = OriginalCreateProcess(gameExePath, lpCommandLine, lpProcessAttributes,
 		lpThreadAttributes, bInheritHandles, dwCreationFlags | CREATE_SUSPENDED, lpEnvironment, gamePath,
 		lpStartupInfo, lpProcessInformation);
-
 	if (! result) {
+		OS::ShowMessageBox("Error", "Failed to start game process", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		return result;
 	}
 
 	const HANDLE gameProcess = lpProcessInformation->hProcess;
 
 	// Inject core dll again so it can start multiplayer game.
-	if (! InjectDll(gameProcess, OS::GetModuleFullPath("Core.dll"))) {
+	const PathString &corePath = OS::GetModuleFullPath("Core.dll");
+	if (! InjectDll(gameProcess, corePath)) {
 		OS::ShowMessageBox("Error", "Failed to load multiplayer core into game process.", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
 		TerminateProcess(gameProcess, 0);
 		return FALSE;
@@ -85,6 +86,8 @@ FARPROC CreateProcessKernel32 = nullptr;
 
 void GameLauncherProxy::Init(void)
 {
+	Hooking::Init();
+
 	const HMODULE kernel32 = GetModuleHandle("Kernel32.dll");
 	CreateProcessKernel32 = GetProcAddressEx(kernel32, "CreateProcessW");
 
