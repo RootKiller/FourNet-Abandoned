@@ -24,19 +24,7 @@ static bool IsSectionToUnlock(const char *const name)
 		return true;
 	}
 
-	if (!strcmp(name, "idata")) {
-		return true;
-	}
-
 	if (!strcmp(name, "rdata")) {
-		return true;
-	}
-
-	if (!strcmp(name, "data")) {
-		return true;
-	}
-
-	if (!strcmp(name, "tls")) {
 		return true;
 	}
 	return false;
