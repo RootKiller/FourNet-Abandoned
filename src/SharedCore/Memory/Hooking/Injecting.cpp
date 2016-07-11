@@ -12,14 +12,20 @@
 bool InjectDll(const HANDLE process, const char *const dllPath)
 {
 	const size_t libPathLen = strlen(dllPath) + 1;
-	SIZE_T bytesWritten = 0;
 
-	void *const remoteLibPath = VirtualAllocEx(process, NULL, libPathLen, MEM_COMMIT, PAGE_READWRITE);
+
+	void *const remoteLibPath = VirtualAllocEx(process, NULL, libPathLen, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 	if (!remoteLibPath) {
 		return false;
 	}
 
+	SIZE_T bytesWritten = 0;
 	if (!WriteProcessMemory(process, remoteLibPath, dllPath, libPathLen, &bytesWritten)) {
+		VirtualFreeEx(process, remoteLibPath, sizeof(remoteLibPath), MEM_RELEASE);
+		return false;
+	}
+
+	if (bytesWritten != libPathLen) {
 		VirtualFreeEx(process, remoteLibPath, sizeof(remoteLibPath), MEM_RELEASE);
 		return false;
 	}
