@@ -42,13 +42,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\Game\MultiplayerGame;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
     <OutDir>$(FOURNET_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>FourNet</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\Game\MultiplayerGame;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
     <OutDir>$(FOURNET_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>FourNet</TargetName>
@@ -91,6 +91,12 @@
     </ProjectReference>
     <ProjectReference Include="..\ClientShared\ClientShared.vcxproj">
       <Project>{894662f5-8033-42c3-bd56-979ed8f0143a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Game\GameProxy\GameProxy.vcxproj">
+      <Project>{c5f7f066-f368-4126-9c78-1f69c26d4a60}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Game\MultiplayerGame\MultiplayerGame.vcxproj">
+      <Project>{37393181-a67f-48ed-9dda-a95af3453aac}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Launch\GameLauncherProxy\GameLauncherProxy.vcxproj">
       <Project>{6d08cb0e-6246-4a3b-9c8a-792748fbe202}</Project>
