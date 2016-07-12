@@ -38,7 +38,7 @@ PathString GetModuleFullPath(const char *const moduleName)
 PathString GetModulePath(const char *const moduleName)
 {
 	const PathString fullPath(GetModuleFullPath(moduleName));
-	const size_t separator = fullPath.FindLast('\\');
+	const unsigned separator = fullPath.FindLast('\\');
 	ASSERT(NotNil(separator));
 	PathString path;
 	path.SubStr(fullPath, 0, separator);
