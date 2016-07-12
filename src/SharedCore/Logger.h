@@ -55,4 +55,22 @@ public:
 	static void Warning(const char *const message, ...);
 };
 
+/**
+ * @def Debug log macro.
+ *
+ * Log operations that are only inside debug build
+ * the logger call is completely removed from the code
+ * when we are building release build so even if we
+ * print some security data using this people with
+ * access to release build of the application will
+ * not see it executable.
+ *
+ * @param[in] message The message to print.
+ */
+#ifdef DEBUG_BUILD
+#	define DEBUG_LOG(message, ...) Logger::Msg(message, __VA_ARGS__)
+#else
+#	define DEBUG_LOG(message, ...) do {} while (false)
+#endif
+
 /* eof */
