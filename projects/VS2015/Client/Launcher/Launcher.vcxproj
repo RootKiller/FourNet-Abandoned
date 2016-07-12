@@ -62,6 +62,7 @@
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(FOURNET_PROJECT_ROOT)/3rdparty/;</AdditionalLibraryDirectories>
@@ -84,6 +85,7 @@
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
