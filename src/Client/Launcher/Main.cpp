@@ -13,6 +13,8 @@
 
 #include "ClientConsts.h"
 
+#include "AutoPtr.h"
+
 namespace launcher {
 
 /**
@@ -55,9 +57,7 @@ int AppMain(int argc, char *argv[])
 
 	Logger::Msg("Game executable: %s", *gameExePath);
 
-	STARTUPINFO startupInfo = { 0 };
-	PROCESS_INFORMATION processInformation = { 0 };
-	startupInfo.cb = sizeof(startupInfo);
+	// Make sure the game executable is available under the specified path.
 
 	if (GetFileAttributesA(gameExePath) == INVALID_FILE_ATTRIBUTES) {
 		AString512 errorMessage;
@@ -66,9 +66,37 @@ int AppMain(int argc, char *argv[])
 		return 0;
 	}
 
-	const LPSTR cmdLine = GetCommandLine();
+	// Replace beginning of the command line from "Launcher.exe" -blah to "LaunchGTAIV.exe" -blah.
+
+	LPSTR cmdLine = GetCommandLine();
+	const String commandLineRaw(GetCommandLine());
+
+	const PathString &moduleRawPath(OS::GetModuleFullPath());
+	PathString cmdLinePrefix;
+	cmdLinePrefix.Format("\"%s\" ", *moduleRawPath);
+
+	AutoPtr<CHAR[]> allocatedCmdLine;
+	const unsigned prefixLength = cmdLinePrefix.Length();
+	if (commandLineRaw.StartsWith(cmdLinePrefix) && commandLineRaw.Length() > prefixLength) {
+		AString commandLineClean;
+		commandLineClean.SubStr(cmdLine, prefixLength);
+
+		AString commandLine;
+		commandLine.Format("\"%s\" %s", *gameExePath, *commandLineClean);
+
+		const unsigned cmdLineLen = commandLine.Length();
+		allocatedCmdLine = new char[cmdLineLen + 1];
+		StrCpy(allocatedCmdLine.Get(), *commandLine);
+		allocatedCmdLine[cmdLineLen] = '\0';
+		cmdLine = allocatedCmdLine.Get();
+	}
 	Logger::Msg("Command line: %s", cmdLine);
 
+	// Start the game process.
+
+	STARTUPINFO startupInfo = { 0 };
+	PROCESS_INFORMATION processInformation = { 0 };
+	startupInfo.cb = sizeof(startupInfo);
 	if (!CreateProcessA(gameExePath, cmdLine, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, gamePath, &startupInfo, &processInformation)) {
 		const unsigned lastError = GetLastError();
 		AString1024 errorMessage;
@@ -76,6 +104,8 @@ int AppMain(int argc, char *argv[])
 		HandleError(errorMessage);
 		return 0;
 	}
+
+	// Make sure that core dynamic library is available under specified path.
 
 	const PathString fourNetDllPath(OS::GetModulePath() + "\\" + CORE_DLL_NAME);
 
@@ -87,6 +117,8 @@ int AppMain(int argc, char *argv[])
 		return 0;
 	}
 
+	// Inject core into the game process.
+
 	const InjectResult injectResult = InjectDll(processInformation.hProcess, fourNetDllPath);
 	if (injectResult != INJECT_RESULT_OK) {
 		AString256 errorMessage;
@@ -96,6 +128,8 @@ int AppMain(int argc, char *argv[])
 		return 0;
 	}
 
+	// Resume game main thread.
+
 	if (ResumeThread(processInformation.hThread) == RESUME_THREAD_FAILED_VALUE) {
 		AString256 errorMessage;
 		errorMessage.Format("Could not resume process main thread. Please try launching the mod again.\n\nErrno: %u", GetLastError());
@@ -104,7 +138,7 @@ int AppMain(int argc, char *argv[])
 		return 0;
 	}
 
-	Logger::Msg("Everything went that smoth we will start party hard now.");
+	Logger::Msg("Everything went that smoth we can start partying hard now.");
 	return 1;
 }
 
