@@ -11,24 +11,31 @@
 #include "Memory/Hooking/Hooking.h"
 #include "Memory/Hooking/Injecting.h"
 
-typedef BOOL
-(WINAPI *CreateProcessW_t)(LPCWCH lpApplicationName, LPWSTR lpCommandLine, LPSECURITY_ATTRIBUTES lpProcessAttributes,
+#include "Logger.h"
+
+#include "ErrorReporting.h"
+
+/**
+ * The return value from ResumeThread when it fails.
+ *
+ * If we trust enough MSDN thats the value they return when resume thread failed - they do not
+ * mention any specific variable defined inside win32 so I prefer to put it here this way.
+ */
+const DWORD RESUME_THREAD_FAILED_VALUE = static_cast<DWORD>(-1);
+
+/** The CreateProcessW prototype */
+typedef BOOL (WINAPI *CreateProcessW_t)(LPCWCH lpApplicationName, LPWSTR lpCommandLine, LPSECURITY_ATTRIBUTES lpProcessAttributes,
 			LPSECURITY_ATTRIBUTES lpThreadAttributes, BOOL bInheritHandles, DWORD dwCreationFlags, LPVOID lpEnvironment,
-			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation
-);
+			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation);
 
-CreateProcessW_t OriginalCreateProcess = nullptr;
+/** Pointer to the CreateProcessW trampoline */
+CreateProcessW_t OriginalCreateProcessW = nullptr;
 
-BOOL WINAPI MyCreateProcess(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LPSECURITY_ATTRIBUTES lpProcessAttributes,
+/** Handle creation of GTAIV process */
+BOOL WINAPI HandleCreateGTAIVProcess(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LPSECURITY_ATTRIBUTES lpProcessAttributes,
 			LPSECURITY_ATTRIBUTES lpThreadAttributes, BOOL bInheritHandles, DWORD dwCreationFlags, LPVOID lpEnvironment,
 			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation)
 {
-	if (wcscmp(lpApplicationName, L"GTAIV.exe")) {
-		return OriginalCreateProcess(lpApplicationName, lpCommandLine, lpProcessAttributes,
-					lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory,
-					lpStartupInfo, lpProcessInformation);
-	}
-
 	PathString gameDirectory = OS::GetModulePath();
 	PathString exeDirectory(gameDirectory);
 	exeDirectory.Append("\\GTAIV.exe");
@@ -36,32 +43,75 @@ BOOL WINAPI MyCreateProcess(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LPS
 	wchar_t gameExePath[MAX_PATH] = { 0 };
 	wchar_t gamePath[MAX_PATH] = { 0 };
 
+	Logger::Msg("Game path: %s", *exeDirectory);
+
 	MultiByteToWideChar(CP_ACP, NULL, exeDirectory, exeDirectory.Length(), gameExePath, MAX_PATH);
 	MultiByteToWideChar(CP_ACP, NULL, gameDirectory, gameDirectory.Length(), gamePath, MAX_PATH);
 
-	const BOOL result = OriginalCreateProcess(gameExePath, lpCommandLine, lpProcessAttributes,
+	const BOOL result = OriginalCreateProcessW(gameExePath, lpCommandLine, lpProcessAttributes,
 		lpThreadAttributes, bInheritHandles, dwCreationFlags | CREATE_SUSPENDED, lpEnvironment, gamePath,
 		lpStartupInfo, lpProcessInformation);
 	if (! result) {
-		OS::ShowMessageBox("Error", "Failed to start game process", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
+		AString512 errorMessage;
+		errorMessage.Format("Failed to start game process.\nGame path: %s\nErrno: %u", *exeDirectory, GetLastError());
+		HandleError(errorMessage);
 		return result;
 	}
 
 	const HANDLE gameProcess = lpProcessInformation->hProcess;
 
 	// Inject core dll again so it can start multiplayer game.
-	const PathString &corePath = OS::GetModuleFullPath("Core.dll");
-	if (! InjectDll(gameProcess, corePath)) {
-		OS::ShowMessageBox("Error", "Failed to load multiplayer core into game process.", OS::EMessageBoxType::MESSAGE_BOX_TYPE_error);
-		TerminateProcess(gameProcess, 0);
-		return FALSE;
+	const PathString &corePath = OS::GetModuleFullPath("FourNet.dll");
+	const InjectResult injectResult = InjectDll(lpProcessInformation->hProcess, corePath);
+	if (injectResult != INJECT_RESULT_OK) {
+		AString256 errorMessage;
+		errorMessage.Format("Could not inject dll into the game process. Please try launching the mod again.\n\nErrno: %u, Errstr: %s", GetLastError(), InjectResultToString(injectResult));
+		HandleError(errorMessage);
+		TerminateProcess(lpProcessInformation->hProcess, 0);
+		return 0;
 	}
 
-	ResumeThread(lpProcessInformation->hThread);
+	if (ResumeThread(lpProcessInformation->hThread) == RESUME_THREAD_FAILED_VALUE) {
+		AString256 errorMessage;
+		errorMessage.Format("Could not resume process main thread. Please try launching the mod again.\n\nErrno: %u", GetLastError());
+		HandleError(errorMessage);
+		TerminateProcess(lpProcessInformation->hProcess, 0);
+		return 0;
+	}
 	return result;
 }
 
-static FARPROC GetProcAddressEx(const HMODULE module, const char *const procName)
+/**
+ * The hook to the CreateProcessW.
+ */
+BOOL WINAPI MyCreateProcessW(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LPSECURITY_ATTRIBUTES lpProcessAttributes,
+			LPSECURITY_ATTRIBUTES lpThreadAttributes, BOOL bInheritHandles, DWORD dwCreationFlags, LPVOID lpEnvironment,
+			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation)
+{
+	if (wcscmp(lpApplicationName, L"GTAIV.exe")) {
+		return OriginalCreateProcessW(lpApplicationName, lpCommandLine, lpProcessAttributes,
+					lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory,
+					lpStartupInfo, lpProcessInformation);
+	}
+
+	return HandleCreateGTAIVProcess(lpApplicationName, lpCommandLine, lpProcessAttributes,
+					lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory,
+					lpStartupInfo, lpProcessInformation);
+}
+
+/**
+ * Get procedure address reimplementation.
+ *
+ * Unfortunately on Windows10 sometimes default GetProcAddress is not
+ * returning address from Kernel32 but instead returns methods from
+ * the compatibility layer DLLs - this plain implementation of
+ * get proc address helps with this so we can hook into right method.
+ *
+ * @param[in] module The module where to find procedure.
+ * @param[in] procName The name of the procedure to get.
+ * @return Address to the procedure or @c nullptr in case procedure is not found.
+ */
+inline FARPROC GetProcAddressEx(const HMODULE module, const char *const procName)
 {
 	const PBYTE imageBase = reinterpret_cast<PBYTE>(module);
 	const IMAGE_DOS_HEADER *const dosHeader = reinterpret_cast<IMAGE_DOS_HEADER *>(imageBase);
@@ -82,21 +132,23 @@ static FARPROC GetProcAddressEx(const HMODULE module, const char *const procName
 	return nullptr;
 }
 
-FARPROC CreateProcessKernel32 = nullptr;
+/** Address to the CreateProcessW method inside Kernel32.dll */
+FARPROC CreateProcessWKernel32 = nullptr;
 
 void GameLauncherProxy::Init(void)
 {
 	Hooking::Init();
 
 	const HMODULE kernel32 = GetModuleHandle("Kernel32.dll");
-	CreateProcessKernel32 = GetProcAddressEx(kernel32, "CreateProcessW");
+	CreateProcessWKernel32 = GetProcAddressEx(kernel32, "CreateProcessW");
 
-	OriginalCreateProcess = reinterpret_cast<CreateProcessW_t>(Hooking::InstallJmpHook(reinterpret_cast<Address_t>(CreateProcessKernel32), reinterpret_cast<Address_t>(MyCreateProcess)));
+	OriginalCreateProcessW = reinterpret_cast<CreateProcessW_t>(Hooking::InstallJmpHook(reinterpret_cast<Address_t>(CreateProcessWKernel32), reinterpret_cast<Address_t>(MyCreateProcessW)));
 }
 
 void GameLauncherProxy::Shutdown(void)
 {
-	Hooking::UninstallJmpHook(reinterpret_cast<Address_t>(CreateProcessKernel32), reinterpret_cast<const Address_t *>(OriginalCreateProcess));
+	Hooking::UninstallJmpHook(reinterpret_cast<Address_t>(CreateProcessWKernel32), reinterpret_cast<const Address_t *>(OriginalCreateProcessW));
+	CreateProcessWKernel32 = nullptr;
 	Hooking::Shutdown();
 }
 

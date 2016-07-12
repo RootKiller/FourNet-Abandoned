@@ -5,13 +5,16 @@
 /**
  * The game launcher proxy class.
  *
- * Perfroms loading of the Core dynamic library
+ * Performs loading of the Core dynamic library
  * again when the game launcher starts game process.
  */
 class GameLauncherProxy
 {
 public:
+	/** Initializes game launcher proxy */
 	static void			Init		(void);
+
+	/** Shutdowns game launcher proxy */
 	static void			Shutdown	(void);
 };
 
