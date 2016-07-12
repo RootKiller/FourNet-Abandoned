@@ -91,7 +91,7 @@ BOOL WINAPI MyCreateProcessW(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LP
 			LPSECURITY_ATTRIBUTES lpThreadAttributes, BOOL bInheritHandles, DWORD dwCreationFlags, LPVOID lpEnvironment,
 			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation)
 {
-	if (wcscmp(lpApplicationName, WC_GAME_EXE_NAME)) {
+	if (wcscmp(lpApplicationName, WC_GAME_EXE_NAME) != 0) {
 		return OriginalCreateProcessW(lpApplicationName, lpCommandLine, lpProcessAttributes,
 					lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory,
 					lpStartupInfo, lpProcessInformation);
