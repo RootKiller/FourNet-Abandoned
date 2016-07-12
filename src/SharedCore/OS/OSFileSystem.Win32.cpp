@@ -16,6 +16,18 @@ bool FolderExists(const PathString& folderName)
 	return GetFileAttributesA(folderName) == FILE_ATTRIBUTE_DIRECTORY;
 }
 
+bool CreateFolder(const PathString& folderName)
+{
+	if (FolderExists(folderName)) {
+		return true;
+	}
+
+	if (CreateDirectoryA(folderName, NULL)) {
+		return true;
+	}
+	return false;
+}
+
 } /* namespace OS */
 
 /* eof */

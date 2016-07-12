@@ -23,6 +23,14 @@ bool FileExists(const PathString& fileName);
  */
 bool FolderExists(const PathString& folderName);
 
+/**
+ * Create folder if does not exists.
+ *
+ * @param[in] folderName The name of the folder to create.
+ * @return @c true if folder was created or exists @c false otherwise.
+ */
+bool CreateFolder(const PathString& folderName);
+
 } /* namespace OS */
 
 /* eof */
