@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D08CB0E-6246-4A3B-9C8A-792748FBE202}</ProjectGuid>
-    <RootNamespace>Core</RootNamespace>
+    <RootNamespace>GameLauncherProxy</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
