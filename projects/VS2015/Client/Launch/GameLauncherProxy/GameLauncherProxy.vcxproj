@@ -42,14 +42,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(IVMP_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
-    <IntDir>$(IVMP_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir>$(IVMP_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
+    <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(IVMP_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir>$(IVMP_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
-    <IncludePath>$(IVMP_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
+    <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

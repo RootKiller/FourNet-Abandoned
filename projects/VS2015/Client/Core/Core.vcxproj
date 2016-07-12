@@ -42,14 +42,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>J:\projects\gtamp\src\Client\Game\MultiplayerGame;$(IVMP_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(IVMP_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
-    <OutDir>$(IVMP_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
-    <IntDir>$(IVMP_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
+    <OutDir>$(FOURNET_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>FourNet</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>J:\projects\gtamp\src\Client\Game\MultiplayerGame;$(IVMP_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(IVMP_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
-    <OutDir>$(IVMP_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
-    <IntDir>$(IVMP_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\Client\Launch\GameLauncherProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared;$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath)</IncludePath>
+    <OutDir>$(FOURNET_PROJECT_ROOT)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>FourNet</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
