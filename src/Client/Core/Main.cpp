@@ -1,6 +1,7 @@
 // Copyright (C) 2016 by Rage MP Team
 
 #include "GameLauncherProxy.h"
+#include "MultiplayerGame.h"
 
 #include "Strings.h"
 
@@ -8,9 +9,6 @@
 
 #include "OS/OS.h"
 #include "OS/OSFileSystem.h"
-
-#include "Memory/Hooking/Hooking.h"
-#include "Memory/MemFunctions.h"
 
 #include "Logger.h"
 
@@ -67,21 +65,12 @@ void CoreMain(void)
 		isInitialized = true;
 	}
 	else if (exeName == GAME_EXE_NAME) {
-		isProcessLauncher = false;
-		isInitialized = true;
-
-		const Address_t base = (unsigned)GetModuleHandle(NULL) - 0x400000;
-
 		logPath.AppendSafe("MultiplayerGame.log.txt");
 		Logger::Initialize(logPath, LOG_LEVEL_Standard);
 
-		Logger::Msg("MultiplayerGame (Base: %p, Module: %s)", base, *OS::GetModuleFullPath());
-
-		char workingDir[MAX_PATH] = { 0 };
-		GetCurrentDirectory(MAX_PATH, workingDir);
-		Logger::Msg("[FS] Working dir: %s", workingDir);
-
-		Hooking::Init();
+		MultiplayerGame::Init();
+		isProcessLauncher = false;
+		isInitialized = true;
 	}
 }
 

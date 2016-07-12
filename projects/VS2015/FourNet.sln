@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameLauncherProxy", "Client
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientShared", "Client\ClientShared\ClientShared.vcxproj", "{894662F5-8033-42C3-BD56-979ED8F0143A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiplayerGame", "Client\Game\MultiplayerGame\MultiplayerGame.vcxproj", "{37393181-A67F-48ED-9DDA-A95AF3453AAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -62,6 +64,12 @@ Global
 		{894662F5-8033-42C3-BD56-979ED8F0143A}.Release|x64.ActiveCfg = Release|Win32
 		{894662F5-8033-42C3-BD56-979ED8F0143A}.Release|x86.ActiveCfg = Release|Win32
 		{894662F5-8033-42C3-BD56-979ED8F0143A}.Release|x86.Build.0 = Release|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Debug|x64.ActiveCfg = Debug|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Debug|x86.ActiveCfg = Debug|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Debug|x86.Build.0 = Debug|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Release|x64.ActiveCfg = Release|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Release|x86.ActiveCfg = Release|Win32
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +81,6 @@ Global
 		{92FE0668-BB1D-4A0B-97FD-962E49E26B19} = {28FDC43D-B646-4419-B28B-420E2BF8850A}
 		{6D08CB0E-6246-4A3B-9C8A-792748FBE202} = {92FE0668-BB1D-4A0B-97FD-962E49E26B19}
 		{894662F5-8033-42C3-BD56-979ED8F0143A} = {28FDC43D-B646-4419-B28B-420E2BF8850A}
+		{37393181-A67F-48ED-9DDA-A95AF3453AAC} = {3F05FF81-10F8-4D7A-BD47-2213C8C2146C}
 	EndGlobalSection
 EndGlobal

@@ -12,7 +12,7 @@ FourNet - Multiplayer mod for Grand Theft Auto IV
 	* **Core** - the main multiplayer client core - compiled to FourNet.dll containing all Game and Launch libs inside.
 	* **Launcher** - the client launcher, launching LaunchGTAIV.exe launcher and attaches FourNet.dll into it.
 	* **Game** - Folder containg all game libraries
-		* No lib at the moment.
+		* **MultiplayerGame** - library containing multiplayer mod functionallity.
 	* **Launch** - Folder containing all launch libraries
 		* **GameLauncherProxy** - selected when FourNet.dll is attached to LaunchGTAIV.exe process - it is here to inject Game libraries into game process (GTAIV.exe)
 * **SharedCore** - shared core library containg low-level code and the core utilities.
