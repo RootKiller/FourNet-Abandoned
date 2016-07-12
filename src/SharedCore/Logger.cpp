@@ -113,7 +113,7 @@ static void PrintEol(void)
 
 	printf("%s", EOL);
 
-	// fflush(g_logFile);
+	fflush(g_logFile);
 }
 
 void Logger::Msg(const char *const message, ...)
