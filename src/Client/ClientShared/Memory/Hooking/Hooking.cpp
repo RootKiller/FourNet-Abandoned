@@ -1,4 +1,4 @@
-// Copyright (C) 2016 by DVO Games
+// Copyright (C) 2016 by Rage MP Team
 
 #include <Windows.h>
 #include <stdio.h>
@@ -11,6 +11,8 @@
 
 #include "OS/OS.h"
 
+#include "Logger.h"
+
 #include <list>
 
 typedef AString8 SegmentName_t;
@@ -20,11 +22,11 @@ std::list<SegmentName_t> segmentsToUnlock;
 
 static bool IsSectionToUnlock(const char *const name)
 {
-	if (!strcmp(name, "text")) {
+	if (!strcmp(name, ".text")) {
 		return true;
 	}
 
-	if (!strcmp(name, "rdata")) {
+	if (!strcmp(name, ".rdata")) {
 		return true;
 	}
 	return false;
@@ -53,10 +55,13 @@ void Hooking::Init(void)
 	// Loop thought all sections
 	for (unsigned sec = 0; sec < ntHeaders->FileHeader.NumberOfSections; sec++, sectionHeader++) {
 		if (!sectionHeader->Name || *sectionHeader->Name == 0) {
+			DEBUG_LOG("Skip %s segment.", sectionHeader->Name);
 			continue;
 		}
 
-		if (IsSectionToUnlock(reinterpret_cast<const char *>(sectionHeader->Name + 1))) {
+		if (IsSectionToUnlock(reinterpret_cast<const char *>(sectionHeader->Name))) {
+			DEBUG_LOG("Unlocking %s segment.", sectionHeader->Name);
+
 			UnprotectMemory(static_cast<void *>(imageBase + sectionHeader->VirtualAddress), ((sectionHeader->Misc.VirtualSize + 4095)&~4095));
 		}
 	}
