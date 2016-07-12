@@ -24,4 +24,15 @@ public:
 	static void		UninstallJmpHook		(const Address_t original, const Address_t *const address);
 };
 
+template <typename TYPE>
+TYPE ReadMemValue(const Address_t address)
+{
+	return *reinterpret_cast<TYPE*>(address);
+}
+
+template <typename TYPE>
+void WriteMemValue(const Address_t address, const TYPE newValue)
+{
+	*reinterpret_cast<TYPE*>(address) = newValue;
+}
 /* eof */
