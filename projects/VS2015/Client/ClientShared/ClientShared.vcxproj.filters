@@ -32,6 +32,9 @@
     <ClInclude Include="..\..\..\..\src\Client\ClientShared\Memory\Hooking\Injecting.h">
       <Filter>Header Files\Memory\Hooking</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\Client\ClientShared\ClientConsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\Client\ClientShared\Memory\Hooking\Injecting.cpp">

@@ -14,6 +14,8 @@
 
 #include "Logger.h"
 
+#include "ClientConsts.h"
+
 /**
  * Get the game executable file name.
  *
@@ -34,19 +36,15 @@ PathString GetGameExeFileName(void)
 	return finalPath;
 }
 
-
-const char *LAUNCHER_EXE_NAME	("LaunchGTAIV.exe");
-const char *GAME_EXE_NAME		("GTAIV.exe");
-
 static bool		isProcessLauncher	= false;
 static bool		isInitialized		= false;
 
 /**
- * Method called when Core.dll is attached to the process.
+ * Method called when core dynamic library is attached to the process.
  */
 void CoreMain(void)
 {
-	PathString logPath = OS::GetModulePath("FourNet.dll");
+	PathString logPath = OS::GetModulePath(CORE_DLL_NAME);
 	logPath.AppendSafe("\\logs\\");
 
 	if (!OS::CreateFolder(logPath)) {
@@ -60,7 +58,7 @@ void CoreMain(void)
 
 	const PathString &exeName = GetGameExeFileName();
 
-	if (exeName == LAUNCHER_EXE_NAME) {
+	if (exeName == GAME_LAUNCHER_EXE_NAME) {
 		logPath.AppendSafe("MultiplayerLaunch.log.txt");
 		Logger::Initialize(logPath, LOG_LEVEL_Standard);
 
@@ -88,7 +86,7 @@ void CoreMain(void)
 }
 
 /**
- * Method called when Core.dll is detached from the process.
+ * Method called when core dynamic library is detached from the process.
  */
 void CoreShutdown(void)
 {

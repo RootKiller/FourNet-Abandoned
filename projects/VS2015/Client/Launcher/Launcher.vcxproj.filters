@@ -18,8 +18,5 @@
     <ClCompile Include="..\..\..\..\Src\Client\Launcher\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\Client\Launcher\GameModDefines.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

@@ -98,7 +98,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\Client\Launcher\GameModDefines.cpp" />
     <ClCompile Include="..\..\..\..\Src\Client\Launcher\Main.cpp" />
   </ItemGroup>
   <ItemGroup>

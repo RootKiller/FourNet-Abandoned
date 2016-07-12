@@ -11,11 +11,9 @@
 
 #include "Logger.h"
 
-namespace launcher {
+#include "ClientConsts.h"
 
-extern const char* GAME_NAME;
-extern const char* GAME_EXE_RELATIVE_PATH;
-extern const char* GAME_EXE_NAME;
+namespace launcher {
 
 /**
  * Handle error.
@@ -53,7 +51,7 @@ int AppMain(int argc, char *argv[])
 	const PathString gamePath("E:\\Program Files (x86)\\Steam\\steamapps\\common\\Grand Theft Auto IV");
 
 	PathString gameExePath;
-	gameExePath.Format("%s\\%s%s", *gamePath, GAME_EXE_RELATIVE_PATH, GAME_EXE_NAME);
+	gameExePath.Format("%s\\%s%s", *gamePath, GAME_EXE_RELATIVE_PATH, GAME_LAUNCHER_EXE_NAME);
 
 	Logger::Msg("Game executable: %s", *gameExePath);
 
@@ -79,11 +77,11 @@ int AppMain(int argc, char *argv[])
 		return 0;
 	}
 
-	const PathString fourNetDllPath(OS::GetModulePath() + "\\FourNet.dll");
+	const PathString fourNetDllPath(OS::GetModulePath() + "\\" + CORE_DLL_NAME);
 
 	if (GetFileAttributesA(fourNetDllPath) == INVALID_FILE_ATTRIBUTES) {
 		AString512 errorMessage;
-		errorMessage.Format("Cannot find Core.dll file. Please try reinstalling the mod.\n\n%s\nErrno: %u", *fourNetDllPath, GetLastError());
+		errorMessage.Format("Cannot find %s file. Please try reinstalling the mod.\n\n%s\nErrno: %u", CORE_DLL_NAME, *fourNetDllPath, GetLastError());
 		HandleError(errorMessage);
 		TerminateProcess(processInformation.hProcess, 0);
 		return 0;

@@ -15,6 +15,8 @@
 
 #include "ErrorReporting.h"
 
+#include "ClientConsts.h"
+
 /**
  * The return value from ResumeThread when it fails.
  *
@@ -38,7 +40,8 @@ BOOL WINAPI HandleCreateGTAIVProcess(LPCWSTR lpApplicationName, LPWSTR lpCommand
 {
 	PathString gameDirectory = OS::GetModulePath();
 	PathString exeDirectory(gameDirectory);
-	exeDirectory.Append("\\GTAIV.exe");
+	exeDirectory.Append("\\");
+	exeDirectory.Append(GAME_EXE_NAME);
 
 	wchar_t gameExePath[MAX_PATH] = { 0 };
 	wchar_t gamePath[MAX_PATH] = { 0 };
@@ -61,7 +64,7 @@ BOOL WINAPI HandleCreateGTAIVProcess(LPCWSTR lpApplicationName, LPWSTR lpCommand
 	const HANDLE gameProcess = lpProcessInformation->hProcess;
 
 	// Inject core dll again so it can start multiplayer game.
-	const PathString &corePath = OS::GetModuleFullPath("FourNet.dll");
+	const PathString &corePath = OS::GetModuleFullPath(CORE_DLL_NAME);
 	const InjectResult injectResult = InjectDll(lpProcessInformation->hProcess, corePath);
 	if (injectResult != INJECT_RESULT_OK) {
 		AString256 errorMessage;
@@ -88,7 +91,7 @@ BOOL WINAPI MyCreateProcessW(LPCWSTR lpApplicationName, LPWSTR lpCommandLine, LP
 			LPSECURITY_ATTRIBUTES lpThreadAttributes, BOOL bInheritHandles, DWORD dwCreationFlags, LPVOID lpEnvironment,
 			LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation)
 {
-	if (wcscmp(lpApplicationName, L"GTAIV.exe")) {
+	if (wcscmp(lpApplicationName, WC_GAME_EXE_NAME)) {
 		return OriginalCreateProcessW(lpApplicationName, lpCommandLine, lpProcessAttributes,
 					lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory,
 					lpStartupInfo, lpProcessInformation);
