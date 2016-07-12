@@ -42,14 +42,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,12 +85,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetsHelpersEnd.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetsSetup.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetHelpersBegin.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Offsets.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Offsets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

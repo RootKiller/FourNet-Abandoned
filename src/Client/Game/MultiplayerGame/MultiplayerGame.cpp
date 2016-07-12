@@ -12,6 +12,8 @@
 
 #include "Memory/Hooking/Hooking.h"
 
+#include "Hooks/GameHooks.h"
+
 void MultiplayerGame::Init(void)
 {
 	Hooking::Init();
@@ -21,11 +23,10 @@ void MultiplayerGame::Init(void)
 		return;
 	}
 
-	Logger::Msg("Allocate memory: %p / %p", Offsets::Base::AllocateMemory, Offsets::ResolveAddress(Offsets::Base::AllocateMemory));
+	DEBUG_LOG("Installing game hooks..");
+	GameHooks::Install();
 
-	char workingDir[MAX_PATH] = { 0 };
-	GetCurrentDirectory(MAX_PATH, workingDir);
-	Logger::Msg("[FS] Working dir: %s", workingDir);
+	DEBUG_LOG("MultiplayerGame initialized");
 }
 
 void MultiplayerGame::Shutdown(void)

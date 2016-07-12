@@ -9,6 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Hooks">
+      <UniqueIdentifier>{a8925465-99a7-42a2-8cce-025681cfb45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hooks">
+      <UniqueIdentifier>{54d9ed86-2662-47db-89e0-2bc4b37377a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Offsets.h">
@@ -23,10 +29,16 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetsHelpersEnd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Offsets.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.cpp">
+      <Filter>Source Files\Hooks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
