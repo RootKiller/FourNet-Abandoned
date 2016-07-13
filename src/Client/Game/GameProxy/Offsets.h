@@ -41,10 +41,48 @@ public:
 	static Address_t ResolveAddress(const Address_t sourceAddress);
 
 #include "OffsetHelpersBegin.h"
-	BEGIN_OFFSET_NAMESPACE(Base)
-		DECLARE_OFFSET(AllocateMemory);
+	BEGIN_OFFSET_NAMESPACE(Global)
+		DECLARE_OFFSET(ModelIndexByModelHash);
+
+		DECLARE_OFFSET(sub_817350);
+		DECLARE_OFFSET(sub_806D40);
+
+		DECLARE_OFFSET(GetPlayerDataByIndex);
 
 		// -- New offset that has no special namespace here --
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CPedFactoryNY)
+		DECLARE_OFFSET(CreatePed);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CStreaming)
+		DECLARE_OFFSET(RequestSpecialModel);
+		DECLARE_OFFSET(LoadAllRequestedModels);
+		DECLARE_OFFSET(RequestModel);
+		DECLARE_OFFSET(HasModelLoaded);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CEventGroup)
+		DECLARE_OFFSET(Add);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CPed)
+		DECLARE_OFFSET(SetCharCreatedBy);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CWorld)
+		DECLARE_OFFSET(SetLoadCollisionFlag);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CTaskSimpleStandStill)
+		DECLARE_OFFSET(Constructor);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CPool)
+		DECLARE_OFFSET(New_2);
+
+		DECLARE_OFFSET(ms_taskPool);
 	END_OFFSET_NAMESPACE()
 
 	// -- New offset and namespaces here --

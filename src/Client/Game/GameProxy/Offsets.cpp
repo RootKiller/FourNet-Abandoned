@@ -31,7 +31,28 @@ static void Init_1070_Offsets(void)
 {
 #include "OffsetHelpersBegin.h"
 
-	SET_OFFSET_ADDRESS(Base, AllocateMemory, 0x004011D0);
+	SET_OFFSET_ADDRESS(Global,					ModelIndexByModelHash,			0x0098AAE0);
+	SET_OFFSET_ADDRESS(Global,					sub_817350,						0x00817350);
+	SET_OFFSET_ADDRESS(Global,					sub_806D40,						0x00806D40);
+	SET_OFFSET_ADDRESS(Global,					GetPlayerDataByIndex,			0x00817F20);
+
+	SET_OFFSET_ADDRESS(CPedFactoryNY,			CreatePed,						0x0043A000);
+
+	SET_OFFSET_ADDRESS(CStreaming,				RequestSpecialModel,			0x00832C40);
+	SET_OFFSET_ADDRESS(CStreaming,				LoadAllRequestedModels,			0x00832C20);
+	SET_OFFSET_ADDRESS(CStreaming,				RequestModel,					0x00B6C3D0);
+	SET_OFFSET_ADDRESS(CStreaming,				HasModelLoaded,					0x00B6C4A0);
+
+	SET_OFFSET_ADDRESS(CEventGroup,				Add,							0x009E58B0);
+
+	SET_OFFSET_ADDRESS(CPed,					SetCharCreatedBy,				0x0089EC20);
+
+	SET_OFFSET_ADDRESS(CWorld,					SetLoadCollisionFlag,			0x00B95290);
+
+	SET_OFFSET_ADDRESS(CTaskSimpleStandStill,	Constructor,					0x00A1D730);
+
+	SET_OFFSET_ADDRESS(CPool,					New_2,							0x00439CB0);
+	SET_OFFSET_ADDRESS(CPool,					ms_taskPool,					0x0164B01C);
 
 	// Your offsets lands here.
 
