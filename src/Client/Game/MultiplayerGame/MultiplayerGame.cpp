@@ -14,8 +14,28 @@
 
 #include "Hooks/GameHooks.h"
 
+
+inline void InitDevConsole(void)
+{
+#ifdef DEBUG_BUILD
+	AllocConsole();
+	freopen("CONOUT$", "w", stdout);
+	freopen("CONOUT$", "w", stderr);
+	freopen("CONIN$", "r", stdin);
+#endif
+}
+
+inline void ShutdownDevConsole(void)
+{
+#ifdef DEBUG_BUILD
+	FreeConsole();
+#endif
+}
+
 void MultiplayerGame::Init(void)
 {
+	InitDevConsole();
+
 	Hooking::Init();
 
 	if (!Offsets::Init()) {
@@ -31,6 +51,7 @@ void MultiplayerGame::Init(void)
 
 void MultiplayerGame::Shutdown(void)
 {
+	ShutdownDevConsole();
 }
 
 /* eof */
