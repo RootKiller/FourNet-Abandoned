@@ -197,6 +197,9 @@ void GameHooks::Install(void)
 	// Disable parked vehicles. (Has to be tested however on first sight works fine).
 	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x00B3E4D0), Offsets::CalculateAddress(0x00B3E50F));
 
+	// Disable pedestrians.
+	MemSet((void *)Offsets::CalculateAddress(0x004215D9), 0x90, 5);
+
 #ifdef DEBUG_PED_CREATION
 //	CPedFactoryNY__CreatePed__retn = Offsets::CalculateAddress(0x0043A008);
 //	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x0043A000), (Address_t)CPedFactoryNY__CreatePed__hook);
