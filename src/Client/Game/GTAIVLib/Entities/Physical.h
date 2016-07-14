@@ -6,6 +6,9 @@
 
 class CPhysical : public CDynamicEntity
 {
+public:
+	uint8						pad268[256]; // 0268 - 0524
 };
+static_assert(sizeof(CPhysical) == 524, "Incorrect CPhysical size");
 
 /* eof */
