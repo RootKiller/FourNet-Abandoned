@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Streaming">
+      <UniqueIdentifier>{2d748cae-fe27-4c2f-a3fc-39fbbd2a924b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Streaming">
+      <UniqueIdentifier>{5b468d64-54f6-4137-a37e-c7ee38e369a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Factories">
+      <UniqueIdentifier>{b8069aa3-4b96-4a19-b81a-ad75176abe5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factories">
+      <UniqueIdentifier>{7c2d62d2-e4c0-4653-9f3c-5e75f0170074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{a54707e1-0381-40e2-acb3-e38caab84baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{3d8b6eb0-d3bc-419c-a6f3-1b135639b790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Peds">
+      <UniqueIdentifier>{ce1b5b03-2439-472d-8819-ad20e30a9e03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Peds">
+      <UniqueIdentifier>{09305a15-ada8-430c-8341-c0cda48baadc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Peds\Tasks">
+      <UniqueIdentifier>{d499f2e1-231c-4720-b662-d35d11249dfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Peds\Tasks">
+      <UniqueIdentifier>{e13a5862-399d-4f0b-84fe-41ce50392150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{9a1ff657-f630-4653-9ce8-73c0789eca4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Players">
+      <UniqueIdentifier>{289f50c9-c772-40e0-8ee8-06adb29ef1c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Players">
+      <UniqueIdentifier>{40483a0f-d8c1-4015-965b-a92a12eea62e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Pools">
+      <UniqueIdentifier>{58b591fd-706a-4f5d-b6fe-7e38713b7f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Pools">
+      <UniqueIdentifier>{2f0d62c6-737f-4931-83c3-1126105bed76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World">
+      <UniqueIdentifier>{22be92f6-34fa-4a9b-a703-356a56723849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{be52677c-e3d0-488d-8fc3-99fe45f22a2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.h">
+      <Filter>Header Files\Streaming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.h">
+      <Filter>Header Files\Entities\Peds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligence.h">
+      <Filter>Header Files\Entities\Peds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligenceNY.h">
+      <Filter>Header Files\Entities\Peds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\EventGroup.h">
+      <Filter>Header Files\Entities\Peds\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.h">
+      <Filter>Header Files\Entities\Peds\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.h">
+      <Filter>Header Files\Entities\Peds\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimpleStandStill.h">
+      <Filter>Header Files\Entities\Peds\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactory.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactoryNY.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Math\Matrix.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Players\PlayerData.h">
+      <Filter>Header Files\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Entity.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Pools\Pool.h">
+      <Filter>Header Files\Pools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\World\World.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.cpp">
+      <Filter>Source Files\Streaming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.cpp">
+      <Filter>Source Files\Entities\Peds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligence.cpp">
+      <Filter>Source Files\Entities\Peds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligenceNY.cpp">
+      <Filter>Source Files\Entities\Peds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.cpp">
+      <Filter>Source Files\Entities\Peds\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.cpp">
+      <Filter>Source Files\Entities\Peds\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimpleStandStill.cpp">
+      <Filter>Source Files\Entities\Peds\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\EventGroup.cpp">
+      <Filter>Source Files\Entities\Peds\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactoryNY.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Players\PlayerData.cpp">
+      <Filter>Source Files\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Entity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Pools\Pool.cpp">
+      <Filter>Source Files\Pools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\World\World.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
