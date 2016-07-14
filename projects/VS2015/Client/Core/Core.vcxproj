@@ -95,6 +95,9 @@
     <ProjectReference Include="..\Game\GameProxy\GameProxy.vcxproj">
       <Project>{c5f7f066-f368-4126-9c78-1f69c26d4a60}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Game\GTAIVLib\GTAIVLib.vcxproj">
+      <Project>{ceac2ca7-b6c5-4c61-961f-c3cb2466baf7}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Game\MultiplayerGame\MultiplayerGame.vcxproj">
       <Project>{37393181-a67f-48ed-9dda-a95af3453aac}</Project>
     </ProjectReference>

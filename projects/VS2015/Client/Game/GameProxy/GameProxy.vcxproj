@@ -42,14 +42,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GTAIVLib;$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(FOURNET_PROJECT_ROOT)\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir>$(FOURNET_PROJECT_ROOT)\libs\$(Configuration)\</OutDir>
-    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
+    <IncludePath>$(FOURNET_PROJECT_ROOT)\src\SharedCore;$(IncludePath);$(FOURNET_PROJECT_ROOT)\src\Client\Game\GTAIVLib;$(FOURNET_PROJECT_ROOT)\src\Client\Game\GameProxy;$(FOURNET_PROJECT_ROOT)\src\Client\ClientShared</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
