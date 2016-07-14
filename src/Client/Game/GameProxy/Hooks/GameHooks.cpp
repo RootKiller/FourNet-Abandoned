@@ -194,6 +194,9 @@ void GameHooks::Install(void)
 	addr_TickScriptingThreads = Offsets::CalculateAddress(0x005A6010);
 	Hooking::InstallPermCallHook(Offsets::CalculateAddress(0x0080A092), (Address_t)MyLoopHook);
 
+	// Disable parked vehicles. (Has to be tested however on first sight works fine).
+	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x00B3E4D0), Offsets::CalculateAddress(0x00B3E50F));
+
 #ifdef DEBUG_PED_CREATION
 //	CPedFactoryNY__CreatePed__retn = Offsets::CalculateAddress(0x0043A008);
 //	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x0043A000), (Address_t)CPedFactoryNY__CreatePed__hook);
