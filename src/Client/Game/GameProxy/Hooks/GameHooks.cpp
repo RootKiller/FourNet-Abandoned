@@ -72,6 +72,28 @@ void _declspec(naked) CPedFactoryNY__CreatePed__hook(void)
 		jmp		CPedFactoryNY__CreatePed__retn
 	}
 }
+
+Address_t CPedFactoryNY__CreateScenarioPed__retn = 0;
+void _declspec(naked) CPedFactoryNY__CreateScenarioPed__hook(void)
+{
+	_asm {
+		push eax
+		mov eax, [esp + 4]
+		mov callAddress, eax
+		pop eax
+		pushad
+	}
+
+	Logger::Msg("CPedFactoryNY__CreateScenarioPed - called from: %X", Offsets::ResolveAddress(callAddress));
+
+	_asm {
+		popad
+		mov		eax, [esp + 4]
+		push	esi
+		push	eax
+		jmp		CPedFactoryNY__CreateScenarioPed__retn
+	}
+}
 #endif
 
 bool modelRequested = false;
@@ -201,8 +223,11 @@ void GameHooks::Install(void)
 	MemSet((void *)Offsets::CalculateAddress(0x004215D9), 0x90, 5);
 
 #ifdef DEBUG_PED_CREATION
-//	CPedFactoryNY__CreatePed__retn = Offsets::CalculateAddress(0x0043A008);
-//	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x0043A000), (Address_t)CPedFactoryNY__CreatePed__hook);
+	CPedFactoryNY__CreatePed__retn = Offsets::CalculateAddress(0x0043A008);
+	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x0043A000), (Address_t)CPedFactoryNY__CreatePed__hook);
+
+	CPedFactoryNY__CreateScenarioPed__retn = Offsets::CalculateAddress(0x0043A176);
+	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x0043A170), (Address_t)CPedFactoryNY__CreateScenarioPed__hook);
 #endif
 
 #ifdef DEBUG_VEH_CREATION
