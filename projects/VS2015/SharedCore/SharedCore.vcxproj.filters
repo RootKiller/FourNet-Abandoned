@@ -188,6 +188,9 @@
     <ClInclude Include="..\..\..\src\SharedCore\Symbols\SymbolSolver.h">
       <Filter>Header Files\Symbols</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\SharedCore\Math\Matrix4x4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\SharedCore\Timer.cpp">

@@ -163,6 +163,7 @@
     <ClInclude Include="..\..\..\src\SharedCore\FileSystem\TextFile.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Logger.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Math\MathFunctions.h" />
+    <ClInclude Include="..\..\..\src\SharedCore\Math\Matrix4x4.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Math\Rectangle.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Math\Vector2.h" />
     <ClInclude Include="..\..\..\src\SharedCore\Memory\Allocators\BaseAllocator.h" />
