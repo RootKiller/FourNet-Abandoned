@@ -129,25 +129,14 @@ void DoCreatePedTest(void)
 
 	CMatrix spawnMatrix;
 	CPlayerData *const data = GetPlayerDataByIndex(0);
-	if (data) {
-		CPed *const ped = data->m_ped;
-		if (ped) {
-			const unsigned pedPtrVal = (unsigned)ped;
-			const CMatrix *const mat = *(CMatrix **)(pedPtrVal + 32);
-			if (mat) {
-				spawnMatrix = *mat;
-				spawnMatrix(3, 1) += 1.0f;
-			}
-			else {
-				Logger::Error("No mat defined");
-			}
-		}
-		else {
-			Logger::Error("No ped found.");
-		}
+	CPed *localPed = nullptr;
+	if (data && (localPed = data->m_ped)) {
+		CMatrix *mat = nullptr;
+		const CVector &pos = localPed->GetPosition();
+		spawnMatrix = CMatrix(pos.x, pos.y, pos.z + 2.0f);
 	}
 	else {
-		Logger::Error("GetPlayerDataByIndex failed");
+		Logger::Error("No local ped found.");
 	}
 
 	CPedFactoryNY *const factory = CPedFactoryNY::Instance();
