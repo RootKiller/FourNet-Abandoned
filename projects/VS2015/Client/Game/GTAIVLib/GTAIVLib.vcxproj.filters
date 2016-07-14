@@ -110,6 +110,9 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.cpp">
@@ -155,6 +158,9 @@
       <Filter>Source Files\World</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>

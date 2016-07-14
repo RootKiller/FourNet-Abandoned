@@ -94,6 +94,7 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimpleStandStill.h" />
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactory.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactoryNY.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Math\Matrix.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimpleStandStill.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactory.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Factories\PedFactoryNY.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Players\PlayerData.cpp" />
