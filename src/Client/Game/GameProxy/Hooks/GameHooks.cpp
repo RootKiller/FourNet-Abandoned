@@ -193,6 +193,19 @@ bool _cdecl MyLoopHook(signed int a1)
 	else {
 		wasPressed = false;
 	}
+
+	if(GetAsyncKeyState(VK_F7)) {
+		CPlayerData *const data = GetPlayerDataByIndex(0);
+		if (data) {
+			CPed *const ped = data->m_ped;
+
+			CVector newPosition = ped->GetPosition();
+			newPosition.z += 2.0f;
+
+			ped->SetPosition(newPosition, 0, 0);
+		}
+	}
+
 	return TickScriptingThreads(a1);
 }
 
