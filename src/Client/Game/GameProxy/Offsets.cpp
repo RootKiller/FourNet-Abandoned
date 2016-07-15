@@ -36,6 +36,10 @@ static void Init_1070_Offsets(void)
 	SET_OFFSET_ADDRESS(Global,					sub_806D40,						0x00806D40);
 	SET_OFFSET_ADDRESS(Global,					GetPlayerDataByIndex,			0x00817F20);
 
+	SET_OFFSET_ADDRESS(CGameAllocator,			Alloc,							0x004011D0);
+	SET_OFFSET_ADDRESS(CGameAllocator,			AllocAligned,					0x004011F0);
+	SET_OFFSET_ADDRESS(CGameAllocator,			Free,							0x005B1C10);
+
 	SET_OFFSET_ADDRESS(CPedFactoryNY,			CreatePed,						0x0043A000);
 
 	SET_OFFSET_ADDRESS(CStreaming,				RequestSpecialModel,			0x00832C40);

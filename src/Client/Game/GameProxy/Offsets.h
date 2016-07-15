@@ -52,6 +52,12 @@ public:
 		// -- New offset that has no special namespace here --
 	END_OFFSET_NAMESPACE()
 
+	BEGIN_OFFSET_NAMESPACE(CGameAllocator)
+		DECLARE_OFFSET(Alloc);
+		DECLARE_OFFSET(AllocAligned);
+		DECLARE_OFFSET(Free);
+	END_OFFSET_NAMESPACE()
+
 	BEGIN_OFFSET_NAMESPACE(CPedFactoryNY)
 		DECLARE_OFFSET(CreatePed);
 	END_OFFSET_NAMESPACE()

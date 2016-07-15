@@ -11,6 +11,10 @@ SETUP_OFFSET(Global,				sub_817350);
 SETUP_OFFSET(Global,				sub_806D40);
 SETUP_OFFSET(Global,				GetPlayerDataByIndex);
 
+SETUP_OFFSET(CGameAllocator,		Alloc);
+SETUP_OFFSET(CGameAllocator,		AllocAligned);
+SETUP_OFFSET(CGameAllocator,		Free);
+
 SETUP_OFFSET(CPedFactoryNY,			CreatePed);
 
 SETUP_OFFSET(CStreaming,			RequestSpecialModel);

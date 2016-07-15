@@ -85,6 +85,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Entity.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.h" />
@@ -104,6 +105,7 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\World\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\DynamicEntity.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Entity.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.cpp" />

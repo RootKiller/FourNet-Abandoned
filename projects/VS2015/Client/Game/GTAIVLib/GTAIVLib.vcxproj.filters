@@ -60,6 +60,12 @@
     <Filter Include="Source Files\World">
       <UniqueIdentifier>{be52677c-e3d0-488d-8fc3-99fe45f22a2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Allocators">
+      <UniqueIdentifier>{9adaf740-675e-4e19-8171-b950feb6aea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Allocators">
+      <UniqueIdentifier>{4e8c644d-e54d-41d0-8286-4efe5481d85c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.h">
@@ -113,6 +119,9 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.h">
+      <Filter>Header Files\Allocators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.cpp">
@@ -162,6 +171,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Physical.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.cpp">
+      <Filter>Source Files\Allocators</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
