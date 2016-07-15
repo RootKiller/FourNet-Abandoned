@@ -21,6 +21,8 @@
 
 #include "Players/PlayerData.h"
 
+#include "XLiveHooks.h"
+
 #include <string>
 #include <new>
 #include <Windows.h>
@@ -208,6 +210,8 @@ LONG WINAPI HandleException(EXCEPTION_POINTERS *ExceptionInfo)
 
 void GameHooks::Install(void)
 {
+	XLiveHooks::Install();
+
 	SetUnhandledExceptionFilter(HandleException);
 
 	// Disable traffic.

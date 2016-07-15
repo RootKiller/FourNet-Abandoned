@@ -22,6 +22,9 @@ public:
 
 	static const Address_t *InstallJmpHook	(const Address_t from, const Address_t to);
 	static void		UninstallJmpHook		(const Address_t original, const Address_t *const address);
+
+	static uint32	UnprotectMemory(void *start, const size_t size);
+	static uint32	ReprotectMemory(void *start, const size_t size, uint32 oldProtect);
 };
 
 template <typename TYPE>

@@ -32,14 +32,14 @@ static bool IsSectionToUnlock(const char *const name)
 	return false;
 }
 
-uint32 UnprotectMemory(void *start, const size_t size)
+uint32 Hooking::UnprotectMemory(void *start, const size_t size)
 {
 	uint32 oldProtect = 0;
 	VirtualProtect(start, size, PAGE_EXECUTE_READWRITE, reinterpret_cast<PDWORD>(&oldProtect));
 	return oldProtect;
 }
 
-uint32 ReprotectMemory(void *start, const size_t size, uint32 oldProtect)
+uint32 Hooking::ReprotectMemory(void *start, const size_t size, uint32 oldProtect)
 {
 	VirtualProtect(start, size, oldProtect, reinterpret_cast<PDWORD>(&oldProtect));
 	return oldProtect;

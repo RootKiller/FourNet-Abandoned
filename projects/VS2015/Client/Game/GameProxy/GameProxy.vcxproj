@@ -86,6 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.h" />
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\XLiveFakedMethods.h" />
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\XLiveHooks.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetsHelpersEnd.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetsSetup.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GameProxy\OffsetHelpersBegin.h" />
@@ -93,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\GameHooks.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Hooks\XLiveHooks.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GameProxy\Offsets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
