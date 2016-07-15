@@ -3,14 +3,15 @@
 #pragma once
 
 #include "Types.h"
-
-class CPed;
+#include "Entities/Peds/PlayerPed.h"
 
 class CPlayerData
 {
 public:
 	uint8				pad0[1420];		// 0000-1420
-	CPed				*m_ped;			// 1420-1424	CPlayerPed*
+	CPlayerPed			*m_ped;			// 1420-1424
+
+
 };
 
 CPlayerData *GetPlayerDataByIndex(const unsigned index);

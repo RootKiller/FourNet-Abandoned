@@ -91,6 +91,7 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligence.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligenceNY.h" />
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PlayerPed.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\EventGroup.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.h" />
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.h" />
@@ -111,6 +112,7 @@
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Ped.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligence.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PedIntelligenceNY.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PlayerPed.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\EventGroup.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\Task.cpp" />
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\Tasks\TaskSimple.cpp" />

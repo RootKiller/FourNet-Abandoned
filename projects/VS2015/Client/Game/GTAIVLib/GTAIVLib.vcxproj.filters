@@ -122,6 +122,9 @@
     <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.h">
       <Filter>Header Files\Allocators</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PlayerPed.h">
+      <Filter>Header Files\Entities\Peds</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Streaming\Streaming.cpp">
@@ -174,6 +177,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Allocators\GameAllocator.cpp">
       <Filter>Source Files\Allocators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\Client\Game\GTAIVLib\Entities\Peds\PlayerPed.cpp">
+      <Filter>Source Files\Entities\Peds</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
