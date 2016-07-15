@@ -43,7 +43,7 @@ static void InstallXLiveDllHooks(void)
 }
 
 #ifdef OVERRIDE_SAVEPATH
-const char *gameHomeDirectory = nullptr;
+static const char *gameHomeDirectory = "";
 
 void _cdecl GetOverridenSavePath(const int unused, char *outPath, char *saveFileName)
 {
@@ -70,7 +70,7 @@ static void PatchGameProcess(void)
 	// Process patches.
 
 	// Disable 5second sleep on game startup.
-	MemSet((void *)Offsets::CalculateAddress(0x00401835), 0x90, 11);
+	MemSet((void *)Offsets::CalculateAddress(0x00401834), 0x90, 11);
 
 	// Enable debugger in error menu (don't load WER.dll)
 	WriteMemValue<uint8>(Offsets::CalculateAddress(0x00D356D0), 0xC3); // retn
