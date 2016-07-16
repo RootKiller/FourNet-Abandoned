@@ -6,9 +6,17 @@
 
 #include "Entities/Physical.h"
 
+#include "Tasks/TaskComplexPlayerOnFoot.h"
+
 enum EPedCreator
 {
 	PED_CREATOR_SCRIPT = 2,
+};
+
+class CPedMoveBlendOnFoot
+{
+public:
+	CTaskComplexPlayerOnFoot *CreatePlayerOnFootTask(void) const;
 };
 
 struct XLiveProtectedBuffer
@@ -20,12 +28,19 @@ struct XLiveProtectedBuffer
 class CPed : public CPhysical
 {
 public:
-	uint8							pad524[24];			// 0524 - 0548
+	uint8							pad524[12];			// 0524 - 0548
+	uint8							m_unknown536;		// 0536 - 0537
+	uint8							m_unknown537;		// 0537 - 0538
+	uint8							pad538[10];			// 0538 - 0548
 	CPedIntelligenceNY				*m_intelligence;	// 0548 - 0552
 	uint8							pad552[56];			// 0552 - 0608
 	uint32							m_unknownFlags608;	// 0608 - 0612
 	uint32							m_unknownFlags612;	// 0612 - 0616
-	uint8							pad616[3140];		// 0616 - 3756
+	uint8							pad616[289];		// 0616 - 3756
+	uint8							m_unknown905;		// 0905 - 0906
+	uint8							pad906[1798];		// 0906 - 2704
+	CPedMoveBlendOnFoot				*m_pedMoveBlendOnFoot; // 2704 - 2708
+	uint8							pad2708[1048];		// 0906 - 3756
 	XLiveProtectedBuffer			*m_health;			// 3756 - 3760
 	uint8							pad3760[80];		// 3760 - 3840
 

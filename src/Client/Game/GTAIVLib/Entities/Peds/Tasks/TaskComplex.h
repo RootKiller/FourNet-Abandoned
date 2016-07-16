@@ -4,10 +4,8 @@
 
 #include "Task.h"
 
-class CTaskSimple : public CTask
+class CTaskComplex : public CTask
 {
-public:
-				CTaskSimple			();
 };
 
 /* eof */

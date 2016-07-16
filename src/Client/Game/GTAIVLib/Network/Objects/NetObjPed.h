@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "Task.h"
+#include "NetObjPhysical.h"
 
-class CTaskSimple : public CTask
+class CNetObjPed : public CNetObjPhysical
 {
 public:
-				CTaskSimple			();
 };
+
 
 /* eof */

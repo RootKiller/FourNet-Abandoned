@@ -2,12 +2,11 @@
 
 #pragma once
 
-#include "Task.h"
+#include "TaskComplex.h"
 
-class CTaskSimple : public CTask
+class CTaskComplexPlayerOnFoot : public CTaskComplex
 {
 public:
-				CTaskSimple			();
 };
 
 /* eof */

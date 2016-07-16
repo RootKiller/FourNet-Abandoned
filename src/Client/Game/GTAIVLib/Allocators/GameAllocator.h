@@ -33,5 +33,12 @@ public:
 	static int Free(void *const memory);
 };
 
+#define GAME_ALLOC_OBJECT\
+	void *operator new(const size_t size) { return CGameAllocator::Alloc(size); }\
+	void operator delete(void *ptr) { CGameAllocator::Free(ptr); }\
+	void *operator new[](size_t count) = delete;\
+	void operator delete[](void *ptr) = delete;
+
+
 
 /* eof */

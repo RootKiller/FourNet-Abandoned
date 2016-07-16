@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "Task.h"
+#include "NetObjEntity.h"
 
-class CTaskSimple : public CTask
+class CNetObjDynamicEntity : public CNetObjEntity
 {
 public:
-				CTaskSimple			();
 };
+
 
 /* eof */

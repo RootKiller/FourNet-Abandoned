@@ -18,7 +18,7 @@ public:
 	}
 };
 
-#include "Math/Matrix.h"
+class CNetworkObject;
 
 class CEntity
 {
@@ -39,7 +39,8 @@ public:
 	uint32							m_unknownFlags36;	// 0036 - 0040 some flags?
 	uint8							pad40[25];			// 0040 - 0065
 	uint8							m_unknownByte65;	// 0065 - 0066 Set to 2 when creating ped.
-	uint8							pad66[46];			// 0066 - 0112
+	uint8							pad66[42];			// 0066 - 0108
+	CNetworkObject					*m_networkObject;	// 0108 - 0112
 };
 static_assert(sizeof(CEntity) == 112, "Incorrect CEntity size");
 

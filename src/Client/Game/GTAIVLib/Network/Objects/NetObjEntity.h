@@ -2,12 +2,13 @@
 
 #pragma once
 
-#include "Task.h"
+#include "NetworkObject.h"
 
-class CTaskSimple : public CTask
+class CNetObjEntity : public CNetworkObject
 {
 public:
-				CTaskSimple			();
+
 };
+
 
 /* eof */

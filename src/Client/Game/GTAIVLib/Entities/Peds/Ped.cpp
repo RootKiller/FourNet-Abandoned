@@ -1,8 +1,14 @@
 // Copyright (C) 2016 by Rage MP Team
 
-#include "OFfsets.h"
+#include "Offsets.h"
 
 #include "Ped.h"
+
+CTaskComplexPlayerOnFoot _declspec(naked) *CPedMoveBlendOnFoot::CreatePlayerOnFootTask(void) const
+{
+	_asm jmp Offsets::CPedMoveBlendOnFoot::CreatePlayerOnFootTask;
+}
+
 
 bool _declspec(naked) CPed::SetCharCreatedBy(const EPedCreator a2)
 {
