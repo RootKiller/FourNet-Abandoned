@@ -214,6 +214,11 @@ void GameHooks::Install(void)
 
 	SetUnhandledExceptionFilter(HandleException);
 
+	////Always start new game
+	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x005B0311), Offsets::CalculateAddress(0x005B03BF));
+	//Skip main menu
+	Hooking::InstallPermJmpHook(Offsets::CalculateAddress(0x00402B3C), Offsets::CalculateAddress(0x00402C07));
+
 	// Disable traffic.
 	// TODO: Can we do it better? NOOP'ing 51 bytes seems not the best solution
 	// maybe changing jnz to jz would also work - once we will need to test it.
