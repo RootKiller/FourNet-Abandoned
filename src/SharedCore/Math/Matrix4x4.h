@@ -45,7 +45,7 @@ public:
 		for (size_t x = 0; x < 4; ++x) {
 			for (size_t y = 0; y < 4; ++y) {
 				const float value = x == y ? 1.0f : 0.0f;
-				m_data[x][y] = 0.0f;
+				m_data[x][y] = value;
 			}
 		}
 	}
