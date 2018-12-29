@@ -49,6 +49,8 @@ public:
 
 		DECLARE_OFFSET(GetPlayerDataByIndex);
 
+		DECLARE_OFFSET(SetRadarScale);
+
 		// -- New offset that has no special namespace here --
 	END_OFFSET_NAMESPACE()
 
@@ -60,6 +62,7 @@ public:
 
 	BEGIN_OFFSET_NAMESPACE(CPedFactoryNY)
 		DECLARE_OFFSET(CreatePed);
+		DECLARE_OFFSET(CreatePlayerPed);
 	END_OFFSET_NAMESPACE()
 
 	BEGIN_OFFSET_NAMESPACE(CStreaming)
@@ -81,14 +84,33 @@ public:
 		DECLARE_OFFSET(SetLoadCollisionFlag);
 	END_OFFSET_NAMESPACE()
 
+	BEGIN_OFFSET_NAMESPACE(CTaskSimple)
+		DECLARE_OFFSET(Constructor);
+	END_OFFSET_NAMESPACE()
+
 	BEGIN_OFFSET_NAMESPACE(CTaskSimpleStandStill)
 		DECLARE_OFFSET(Constructor);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CTaskSimpleNetworkClone)
+		DECLARE_OFFSET(Vtable);
+		DECLARE_OFFSET(Clone);
 	END_OFFSET_NAMESPACE()
 
 	BEGIN_OFFSET_NAMESPACE(CPool)
 		DECLARE_OFFSET(New_2);
 
 		DECLARE_OFFSET(ms_taskPool);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CPlayerData)
+		DECLARE_OFFSET(Constructor);
+
+		DECLARE_OFFSET(SetPlayerPed);
+	END_OFFSET_NAMESPACE()
+
+	BEGIN_OFFSET_NAMESPACE(CPedMoveBlendOnFoot)
+		DECLARE_OFFSET(CreatePlayerOnFootTask);
 	END_OFFSET_NAMESPACE()
 
 	// -- New offset and namespaces here --

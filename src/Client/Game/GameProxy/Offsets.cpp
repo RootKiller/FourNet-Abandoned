@@ -35,12 +35,14 @@ static void Init_1070_Offsets(void)
 	SET_OFFSET_ADDRESS(Global,					sub_817350,						0x00817350);
 	SET_OFFSET_ADDRESS(Global,					sub_806D40,						0x00806D40);
 	SET_OFFSET_ADDRESS(Global,					GetPlayerDataByIndex,			0x00817F20);
+	SET_OFFSET_ADDRESS(Global,					SetRadarScale,					0x00BB2310);
 
 	SET_OFFSET_ADDRESS(CGameAllocator,			Alloc,							0x004011D0);
 	SET_OFFSET_ADDRESS(CGameAllocator,			AllocAligned,					0x004011F0);
 	SET_OFFSET_ADDRESS(CGameAllocator,			Free,							0x005B1C10);
 
 	SET_OFFSET_ADDRESS(CPedFactoryNY,			CreatePed,						0x0043A000);
+	SET_OFFSET_ADDRESS(CPedFactoryNY,			CreatePlayerPed,				0x0043A340);
 
 	SET_OFFSET_ADDRESS(CStreaming,				RequestSpecialModel,			0x00832C40);
 	SET_OFFSET_ADDRESS(CStreaming,				LoadAllRequestedModels,			0x00832C20);
@@ -55,8 +57,18 @@ static void Init_1070_Offsets(void)
 
 	SET_OFFSET_ADDRESS(CTaskSimpleStandStill,	Constructor,					0x00A1D730);
 
+	SET_OFFSET_ADDRESS(CTaskSimple,				Constructor,					0x00A28AD0);
+
+	SET_OFFSET_ADDRESS(CTaskSimpleNetworkClone, Vtable,							0x00E9FA9C);
+	SET_OFFSET_ADDRESS(CTaskSimpleNetworkClone, Clone,							0x004741D0);
+
 	SET_OFFSET_ADDRESS(CPool,					New_2,							0x00439CB0);
 	SET_OFFSET_ADDRESS(CPool,					ms_taskPool,					0x0164B01C);
+
+	SET_OFFSET_ADDRESS(CPlayerData,				Constructor,					0x0087AB70);
+	SET_OFFSET_ADDRESS(CPlayerData,				SetPlayerPed,					0x008786F0);
+
+	SET_OFFSET_ADDRESS(CPedMoveBlendOnFoot,		CreatePlayerOnFootTask,			0x00A39120);
 
 	// Your offsets lands here.
 
