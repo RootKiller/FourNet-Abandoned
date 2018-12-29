@@ -1,5 +1,7 @@
-FourNet - Multiplayer mod for Grand Theft Auto IV
+ABANDONED - FourNet - Multiplayer mod for Grand Theft Auto IV
 ==========================
+
+This project was rather an experimental than a working multiplayer mod. It is abandoned so no support is provided.
 
 # Setup
 
